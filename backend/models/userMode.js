@@ -9,10 +9,6 @@ const userSchema=new mongoose.Schema({
         required:true,
         unique:true
     },
-    likes:[{
-        type:mongoose.Schema.Types.ObjectId,
-        ref:"post"
-    }],
     password:{
         type:String,
         required:true
