@@ -1,6 +1,4 @@
-// src/pages/Register.jsx
 import React, { useState } from "react";
-import "../css/Register.css";
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -27,11 +25,14 @@ const Register = () => {
   };
 
   return (
-    <div className="register-container">
-      <form className="register-form" onSubmit={handleSubmit}>
-        <h2>Create an Account</h2>
+    <div className="min-h-screen flex items-center justify-center bg-gray-400 px-4">
+      <form 
+        className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md"
+        onSubmit={handleSubmit}
+      >
+        <h2 className="text-2xl font-semibold text-center mb-6">Create an Account</h2>
 
-        <label>Full Name</label>
+        <label className="block mb-2 font-medium">Full Name</label>
         <input
           type="text"
           name="name"
@@ -39,9 +40,10 @@ const Register = () => {
           value={formData.name}
           onChange={handleChange}
           required
+          className="w-full mb-4 px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
         />
 
-        <label>Email</label>
+        <label className="block mb-2 font-medium">Email</label>
         <input
           type="email"
           name="email"
@@ -49,9 +51,10 @@ const Register = () => {
           value={formData.email}
           onChange={handleChange}
           required
+          className="w-full mb-4 px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
         />
 
-        <label>Password</label>
+        <label className="block mb-2 font-medium">Password</label>
         <input
           type="password"
           name="password"
@@ -59,9 +62,10 @@ const Register = () => {
           value={formData.password}
           onChange={handleChange}
           required
+          className="w-full mb-4 px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
         />
 
-        <label>Confirm Password</label>
+        <label className="block mb-2 font-medium">Confirm Password</label>
         <input
           type="password"
           name="confirmPassword"
@@ -69,12 +73,18 @@ const Register = () => {
           value={formData.confirmPassword}
           onChange={handleChange}
           required
+          className="w-full mb-6 px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
         />
 
-        <button type="submit" className="btn-register">Register</button>
+        <button 
+          type="submit"
+          className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition"
+        >
+          Register
+        </button>
 
-        <p className="redirect">
-          Already have an account? <a href="/login">Login</a>
+        <p className="mt-4 text-center text-gray-600">
+          Already have an account? <a href="/login" className="text-blue-500 hover:underline">Login</a>
         </p>
       </form>
     </div>
