@@ -12,6 +12,18 @@ import Deals from "./pages/Deals";
 import Categories from "./pages/Categories";
 
 import Kurti from "./products/Kurti";
+import Suit from "./products/Suit";
+import Coat from "./products/Coat";
+import Sarara from "./products/Sarara";
+
+
+
+
+
+
+
+
+
 
 function App() {
   return (
@@ -29,6 +41,10 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/products/kurti" element={<Kurti />} />
+        <Route path="/products/suit" element={<Suit />} />
+        <Route path="/products/coat" element={<Coat />} />
+        <Route path="/products/Sarara" element={<Sarara />} />
+
         
         {/* Fallback Route */}
         <Route path="*" elemdent={<h2 style={{ padding: "20px" }}>404 - Page Not Found</h2>} />

@@ -28,6 +28,47 @@ export default function ProductsKurtti() {
             name: 'Kurti 1',
             price: 100
         },
+        {
+            image: 'https://cdn.shopify.com/s/files/1/0266/6276/4597/files/301030220YELLOW_1_800x.jpg?v=1755594198',
+            name: 'Kurti 1',
+            price: 100
+        },
+        {
+            image: 'https://cdn.shopify.com/s/files/1/0266/6276/4597/files/301030220YELLOW_1_800x.jpg?v=1755594198',
+            name: 'Kurti 1',
+            price: 100
+        },
+        {
+            image: 'https://cdn.shopify.com/s/files/1/0266/6276/4597/files/301030220YELLOW_1_800x.jpg?v=1755594198',
+            name: 'Kurti 1',
+            price: 100
+        },
+        {
+            image: 'https://cdn.shopify.com/s/files/1/0266/6276/4597/files/301030220YELLOW_1_800x.jpg?v=1755594198',
+            name: 'Kurti 1',
+            price: 100
+        },
+        {
+            image: 'https://cdn.shopify.com/s/files/1/0266/6276/4597/files/301030220YELLOW_1_800x.jpg?v=1755594198',
+            name: 'Kurti 1',
+            price: 100
+        },
+        {
+            image: 'https://cdn.shopify.com/s/files/1/0266/6276/4597/files/301030220YELLOW_1_800x.jpg?v=1755594198',
+            name: 'Kurti 1',
+            price: 100
+        },
+        {
+            image: 'https://cdn.shopify.com/s/files/1/0266/6276/4597/files/301030220YELLOW_1_800x.jpg?v=1755594198',
+            name: 'Kurti 1',
+            price: 100
+        },
+        {
+            image: 'https://cdn.shopify.com/s/files/1/0266/6276/4597/files/301030220YELLOW_1_800x.jpg?v=1755594198',
+            name: 'Kurti 1',
+            price: 100
+        },
+        
         
         
     ]
