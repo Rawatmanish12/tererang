@@ -148,11 +148,11 @@ const ShararaSuits = () => {
               {/* Buttons */}
               <div className="mt-6 flex flex-col gap-3">
                 <button className="w-full border-2 border-pink-600 text-pink-600 hover:bg-pink-600 hover:text-white font-medium py-2 rounded-lg transition duration-200">
-                  Add to Cart
+                  Choose Options
                 </button>
-                <button className="w-full bg-pink-600 text-white hover:bg-pink-700 font-medium py-2 rounded-lg transition duration-200">
-                  Buy Now
-                </button>
+                {/* <button className="w-full bg-pink-600 text-white hover:bg-pink-700 font-medium py-2 rounded-lg transition duration-200"> */}
+              
+                {/* </button> */}
               </div>
             </div>
           </div>

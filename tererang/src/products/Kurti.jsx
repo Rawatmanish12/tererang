@@ -145,7 +145,7 @@ const Kurti = () => {
               </div>
 
               <button className="mt-5 w-full border-2 border-pink-600 text-pink-600 hover:bg-pink-600 hover:text-white font-medium py-2 rounded-lg transition duration-200">
-                Add to Cart
+                Choose Options
               </button>
             </div>
           </div>

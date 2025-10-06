@@ -1,5 +1,7 @@
 // src/pages/WomensCoat.jsx
-import React from "react";
+// import React from "react";
+import React, { useState } from "react";
+
 
 // Dummy data for Women's Coats
 const coatData = [
@@ -102,6 +104,9 @@ const coatData = [
 ];
 
 const WomensCoat = () => {
+  const [selectedCoat, setSelectedCoat] = useState(null);
+const [showPopup, setShowPopup] = useState(false);
+
   return (
     <div className="bg-gradient-to-r from-pink-50 via-white to-pink-50 min-h-screen py-12 px-6">
       {/* Page Title */}
@@ -144,13 +149,76 @@ const WomensCoat = () => {
                 </span>
               </div>
 
-              <button className="mt-5 w-full border-2 border-pink-600 text-pink-600 hover:bg-pink-600 hover:text-white font-medium py-2 rounded-lg transition duration-200">
-                Add to Cart
-              </button>
+              <button
+  onClick={() => {
+    setSelectedCoat(coat);
+    setShowPopup(true);
+  }}
+  className="mt-5 w-full border-2 border-pink-600 text-pink-600 hover:bg-pink-600 hover:text-white font-medium py-2 rounded-lg transition duration-200"
+>
+  Choose Options
+</button>
+
             </div>
           </div>
         ))}
       </div>
+      {/* Product Popup */}
+{showPopup && selectedCoat && (
+  <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+    <div className="bg-white rounded-2xl p-8 w-[90%] md:w-[50%] relative shadow-xl">
+      
+      {/* Close Button */}
+      <button
+        onClick={() => setShowPopup(false)}
+        className="absolute top-4 right-4 text-gray-600 hover:text-gray-800 text-2xl"
+      >
+        ✕
+      </button>
+
+      {/* Product Info */}
+      <div className="flex flex-col md:flex-row items-center gap-6">
+        <img
+          src={selectedCoat.image}
+          alt={selectedCoat.title}
+          className="w-[200px] h-[250px] rounded-xl object-cover"
+        />
+
+        <div>
+          <h2 className="text-2xl font-bold text-pink-700">{selectedCoat.title}</h2>
+          <p className="text-gray-600 font-medium mb-2">{selectedCoat.brand}</p>
+
+          <div className="mb-4">
+            <span className="line-through text-gray-400 mr-2">
+              {selectedCoat.oldPrice}
+            </span>
+            <span className="text-2xl text-pink-600 font-bold">
+              {selectedCoat.newPrice}
+            </span>
+          </div>
+
+          {/* Size Options */}
+          <div className="flex gap-2 mb-4">
+            {["XS", "S", "M", "L", "XL"].map((size) => (
+              <button
+                key={size}
+                className="border border-pink-500 text-pink-600 px-3 py-1 rounded-full hover:bg-pink-600 hover:text-white transition"
+              >
+                {size}
+              </button>
+            ))}
+          </div>
+
+          {/* Buy Now Button */}
+          <button className="bg-pink-600 text-white px-6 py-2 rounded-lg hover:bg-pink-700 transition">
+            Buy Now
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+)}
+
     </div>
   );
 };
