@@ -1,13 +1,15 @@
 // src/components/Navbar.jsx
 import React, { useState, useRef, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import tereRang from "./final logo updated.jpg";
+import tereRang from "./Final Logo.jpg";
+import { Menu, X } from "lucide-react"; // For mobile menu icons
 
 const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchText, setSearchText] = useState("");
   const [isLoginMenuOpen, setIsLoginMenuOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const dropdownRef = useRef(null);
   const loginRef = useRef(null);
@@ -27,99 +29,114 @@ const Navbar = () => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // ✅ Auto-close dropdown when route changes
+  // Auto-close dropdown when route changes
   useEffect(() => {
     setIsDropdownOpen(false);
     setIsLoginMenuOpen(false);
+    setIsMobileMenuOpen(false);
   }, [location]);
 
+  // Active route highlighting
+  const isActive = (path) => location.pathname === path;
+
   return (
-    <nav className="bg-gradient-to-r from-pink-100 via-pink-200 to-pink-100 shadow-md sticky top-0 z-50">
+    <nav className="bg-black text-white shadow-lg sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-6 lg:px-10 h-20 flex justify-between items-center">
-        {/* Logo */}
+        
+        {/* ✅ LOGO SECTION */}
         <div className="flex items-center">
           <Link to="/">
             <img
               src={tereRang}
               alt="Logo"
-              className="h-14 w-auto mr-3 drop-shadow-lg"
+              // 🖼️ IMAGE CSS: Increased size & added glow hover effect
+              className="h-40 w-40 mr-3 rounded-xl object-contain shadow-lg hover:scale-110 transition duration-300"
             />
           </Link>
         </div>
 
-        {/* Navigation Links */}
-        <ul className="hidden md:flex space-x-8 items-center font-semibold text-gray-800">
+        {/* ✅ DESKTOP MENU */}
+        <ul className="hidden md:flex space-x-8 items-center font-medium">
           <li>
             <Link
               to="/"
-              className="hover:text-pink-700 hover:scale-105 transition duration-200"
+              className={`transition duration-200 ${
+                isActive("/") ? "text-teal-400" : "hover:text-teal-400"
+              }`}
             >
               Home
             </Link>
           </li>
 
-          {/* Products dropdown */}
+          {/* ✅ PRODUCTS DROPDOWN */}
           <li ref={dropdownRef} className="relative">
             <button
               onClick={() => setIsDropdownOpen((s) => !s)}
-              className="hover:text-pink-700 hover:scale-105 transition duration-200"
+              className={`transition duration-200 ${
+                isActive("/products/kurti") ||
+                isActive("/products/suit") ||
+                isActive("/products/designerSuit")
+                  ? "text-teal-400"
+                  : "hover:text-teal-400"
+              }`}
             >
               Products
             </button>
 
             {isDropdownOpen && (
-              <div className="absolute left-1/2 transform -translate-x-1/2 mt-4 bg-white rounded-xl shadow-xl p-5 grid grid-cols-2 gap-6 w-[480px] border border-pink-200 z-50">
-                {/* Daily Wear */}
-                <div className="p-3 rounded-lg bg-pink-50 hover:shadow-md transition">
-                  <h4 className="font-bold text-pink-700 border-b border-pink-300 pb-1 mb-2">
-                    🌸 Daily Wear
+              <div className="absolute left-1/2 transform -translate-x-1/2 mt-4 bg-gray-900 text-white rounded-xl shadow-2xl p-5 grid grid-cols-2 gap-6 w-[480px] border border-gray-700 z-50">
+                
+                {/* 🌿 Daily Wear */}
+                <div className="p-3 rounded-lg bg-gray-800 hover:bg-gray-700 transition">
+                  <h4 className="font-semibold text-teal-400 border-b border-teal-600 pb-1 mb-2">
+                    🌿 Daily Wear
                   </h4>
                   <Link
                     to="/products/kurti"
                     onClick={() => setIsDropdownOpen(false)}
-                    className="block hover:text-pink-600"
+                    className="block hover:text-teal-400"
                   >
                     Kurti
                   </Link>
                   <Link
                     to="/products/suit"
                     onClick={() => setIsDropdownOpen(false)}
-                    className="block hover:text-pink-600"
+                    className="block hover:text-teal-400"
                   >
                     Suit
                   </Link>
                   <Link
                     to="/products/coat"
                     onClick={() => setIsDropdownOpen(false)}
-                    className="block hover:text-pink-600"
+                    className="block hover:text-teal-400"
                   >
                     Coat
                   </Link>
                 </div>
 
-                {/* Party Wear */}
-                <div className="p-3 rounded-lg bg-purple-50 hover:shadow-md transition">
-                  <h4 className="font-bold text-purple-700 border-b border-purple-300 pb-1 mb-2">
+                {/* 🎉 Party Wear */}
+                <div className="p-3 rounded-lg bg-gray-800 hover:bg-gray-700 transition">
+                  <h4 className="font-semibold text-cyan-400 border-b border-cyan-600 pb-1 mb-2">
                     🎉 Party Wear
                   </h4>
                   <Link
                     to="/products/sarara"
                     onClick={() => setIsDropdownOpen(false)}
-                    className="block hover:text-purple-600"
+                    className="block hover:text-cyan-400"
                   >
                     Sarara Suits
                   </Link>
                   <Link
                     to="/products/skirt"
                     onClick={() => setIsDropdownOpen(false)}
-                    className="block hover:text-purple-600"
+                    className="block hover:text-cyan-400"
                   >
                     Skirt
                   </Link>
                   <Link
                     to="/products/designerSuit"
                     onClick={() => setIsDropdownOpen(false)}
-                    className="block hover:text-purple-600"
+                    className="block hover:text-cyan-400"
                   >
                     Designer Suits
                   </Link>
@@ -131,24 +148,30 @@ const Navbar = () => {
           <li>
             <Link
               to="/TermsPage"
-              className="hover:text-pink-700 hover:scale-105 transition duration-200"
+              className={`transition duration-200 ${
+                isActive("/TermsPage") ? "text-teal-400" : "hover:text-teal-400"
+              }`}
             >
-              Term's & Condition
+              Terms & Conditions
             </Link>
           </li>
+
           <li>
             <Link
               to="/contact"
-              className="hover:text-pink-700 hover:scale-105 transition duration-200"
+              className={`transition duration-200 ${
+                isActive("/contact") ? "text-teal-400" : "hover:text-teal-400"
+              }`}
             >
               Contact Us
             </Link>
           </li>
         </ul>
 
-        {/* Right Section */}
+        {/* ✅ RIGHT SECTION */}
         <div className="flex items-center space-x-4 relative">
-          {/* Search Section */}
+          
+          {/* 🔍 Search Section */}
           <div className="relative flex items-center">
             <div
               className={`transition-all duration-300 ease-in-out overflow-hidden ${
@@ -159,67 +182,69 @@ const Navbar = () => {
                 type="text"
                 value={searchText}
                 onChange={(e) => setSearchText(e.target.value)}
-                placeholder="Search products..."
-                className="bg-white border border-pink-300 rounded-full px-3 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-pink-400 w-full"
+                placeholder="Search..."
+                className="bg-gray-800 border border-gray-600 rounded-full px-3 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-teal-400 w-full text-white placeholder-gray-400"
               />
             </div>
             <button
               onClick={() => setIsSearchOpen(!isSearchOpen)}
-              className="text-xl ml-2 hover:text-pink-700 transition"
+              className="text-xl ml-2 hover:text-teal-400 transition"
             >
               🔍
             </button>
           </div>
 
-          {/* Cart */}
+          {/* 🛒 Cart */}
           <div className="relative">
-            <button className="text-2xl hover:text-pink-700 transition">🛒</button>
-            <span className="absolute -top-2 -right-3 bg-pink-600 text-white text-xs font-bold rounded-full px-2 shadow-md">
+            <button className="text-2xl hover:text-teal-400 transition">
+              🛒
+            </button>
+            <span className="absolute -top-2 -right-3 bg-teal-500 text-white text-xs font-bold rounded-full px-2 shadow-md">
               2
             </span>
           </div>
 
-          {/* Login dropdown */}
+          {/* 👤 Login Dropdown */}
           <div ref={loginRef} className="relative">
             <button
               onClick={() => setIsLoginMenuOpen((s) => !s)}
-              className="bg-gray-800 hover:bg-gray-700 text-white px-4 py-1.5 rounded-full font-medium transition"
+              className="bg-teal-600 hover:bg-teal-500 text-white px-4 py-1.5 rounded-full font-medium transition"
             >
               Login
             </button>
 
             {isLoginMenuOpen && (
-              <div className="absolute right-0 mt-3 w-60 bg-white rounded-xl shadow-2xl border border-gray-200 z-50 p-5">
-                <h4 className="text-lg font-bold text-gray-700 mb-2">Welcome</h4>
-                <p className="text-sm text-gray-500 mb-3">
+              <div className="absolute right-0 mt-3 w-60 bg-gray-900 text-white rounded-xl shadow-2xl border border-gray-700 z-50 p-5">
+                <h4 className="text-lg font-bold mb-2">Welcome</h4>
+                <p className="text-sm text-gray-400 mb-3">
                   Access your account and manage orders
                 </p>
 
                 <Link
                   to="/login"
                   onClick={() => setIsLoginMenuOpen(false)}
-                  className="block bg-pink-600 text-white text-center py-2 rounded-lg font-semibold hover:bg-pink-500 transition mb-3"
+                  className="block bg-teal-600 text-center py-2 rounded-lg font-semibold hover:bg-teal-500 transition mb-3"
                 >
                   LOGIN / SIGNUP
                 </Link>
 
-                <hr className="mb-3" />
+                <hr className="border-gray-700 mb-3" />
 
-                <ul className="space-y-2 text-gray-700 text-sm">
+                <ul className="space-y-2 text-sm">
                   <li>
                     <Link
-                      to="/orders"
+                      to="/MyOrder"
                       onClick={() => setIsLoginMenuOpen(false)}
-                      className="hover:text-pink-600"
+                      className="hover:text-teal-400"
                     >
                       📦 My Orders
                     </Link>
                   </li>
                   <li>
                     <Link
-                      to="/offers"
+                      to="/AlwaysOffers"
                       onClick={() => setIsLoginMenuOpen(false)}
-                      className="hover:text-pink-600"
+                      className="hover:text-teal-400"
                     >
                       🎁 Offers
                     </Link>
@@ -229,15 +254,57 @@ const Navbar = () => {
             )}
           </div>
 
-          {/* Register */}
+          {/* 📝 Register Button */}
           <Link
             to="/register"
-            className="bg-pink-600 hover:bg-pink-500 text-white px-4 py-1.5 rounded-full font-medium shadow-md transition"
+            className="hidden md:inline bg-white text-black hover:bg-gray-200 px-4 py-1.5 rounded-full font-semibold transition"
+          >
+            Register
+          </Link>
+
+          {/* 📱 Mobile Menu Button */}
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="md:hidden text-3xl hover:text-teal-400 transition"
+          >
+            {isMobileMenuOpen ? <X /> : <Menu />}
+          </button>
+        </div>
+      </div>
+
+      {/* ✅ MOBILE MENU */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden bg-gray-900 text-white px-6 py-5 space-y-4 font-medium border-t border-gray-800">
+          <Link to="/" onClick={() => setIsMobileMenuOpen(false)}>
+            Home
+          </Link>
+          <Link to="/products/kurti" onClick={() => setIsMobileMenuOpen(false)}>
+            Kurti
+          </Link>
+          <Link to="/products/suit" onClick={() => setIsMobileMenuOpen(false)}>
+            Suit
+          </Link>
+          <Link
+            to="/products/designerSuit"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            Designer Suits
+          </Link>
+          <Link to="/TermsPage" onClick={() => setIsMobileMenuOpen(false)}>
+            Terms & Conditions
+          </Link>
+          <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
+            Contact Us
+          </Link>
+          <Link
+            to="/register"
+            onClick={() => setIsMobileMenuOpen(false)}
+            className="block bg-teal-600 text-center py-2 rounded-full font-semibold hover:bg-teal-500 transition"
           >
             Register
           </Link>
         </div>
-      </div>
+      )}
     </nav>
   );
 };

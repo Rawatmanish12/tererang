@@ -21,6 +21,8 @@ import OrderTracker from "./products/OrderTracker";
 import FaqPage from "./products/FaqPage";
 import HelpCenterPage from "./products/HelpCenterPage";
 import TermsPage from"./products/TermsPage";
+import AlwaysOffers from"./products/AlwaysOffers";
+import MyOrder from"./products/MyOrder";
 
 
 
@@ -54,6 +56,9 @@ function App() {
         <Route path="/FaqPage" element={<FaqPage />} />
         <Route path="/HelpCenterPage" element={<HelpCenterPage/>} />
         <Route path="/TermsPage" element={<TermsPage/>}/>
+        <Route path="/AlwaysOffers" element={<AlwaysOffers/>}/>
+        <Route path="/MyOrder" element={<MyOrder/>}/>
+
 
 
         {/* Fallback Route */}
