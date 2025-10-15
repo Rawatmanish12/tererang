@@ -16,6 +16,14 @@ import Coat from "./products/Coat";
 import Sarara from "./products/Sarara";
 import Skirt from "./products/Skirt";
 //import Offers from "./pages/Offers";
+import Shipping from "./products/Shipping";
+import OrderTracker from "./products/OrderTracker";
+import FaqPage from "./products/FaqPage";
+import HelpCenterPage from "./products/HelpCenterPage";
+import TermsPage from"./products/TermsPage";
+
+
+
 
 function App() {
   const [showPopup] = useState(false);
@@ -41,6 +49,12 @@ function App() {
         <Route path="/products/Coat" element={<Coat />} />
         <Route path="/products/Sarara" element={<Sarara />} />   {/* ✅ lowercase */}
         <Route path="/products/Skirt" element={<Skirt />} />     {/* ✅ lowercase */}
+        <Route path="/Shipping" element={<Shipping />} />     {/* ✅ lowercase */}
+        <Route path="/OrderTracker" element={<OrderTracker />} />     {/* ✅ lowercase */}
+        <Route path="/FaqPage" element={<FaqPage />} />
+        <Route path="/HelpCenterPage" element={<HelpCenterPage/>} />
+        <Route path="/TermsPage" element={<TermsPage/>}/>
+
 
         {/* Fallback Route */}
         <Route

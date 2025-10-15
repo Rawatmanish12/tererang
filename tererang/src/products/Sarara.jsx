@@ -1,165 +1,75 @@
-// src/pages/ShararaSuits.jsx
 import React from "react";
+import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-// Dummy data for Sharara Suits
 const shararaData = [
   {
     id: 1,
     title: "Royal Blue Sharara Suit",
+    description: "Elegant royal blue sharara suit with mirror work and soft fabric.",
     brand: "Tererang",
     oldPrice: "₹5,999",
     newPrice: "₹4,299",
     image: "https://www.lavanyathelabel.com/cdn/shop/files/LBL101KS584_2_700x.jpg?v=1755064787",
+    sizes: ["S", "M", "L", "XL"],
+    heightOptions: ["Up to 5'3''", "5'4''-5'6''", "5'6'' and above"],
   },
-  {
-    id: 2,
-    title: "Classic Black Sharara Suit",
-    brand: "Tererang",
-    oldPrice: "₹6,499",
-    newPrice: "₹4,799",
-    image: "https://www.lavanyathelabel.com/cdn/shop/files/LBL101KS584_2_700x.jpg?v=1755064787",
-  },
-  {
-    id: 3,
-    title: "Golden Embroidered Sharara",
-    brand: "Tererang",
-    oldPrice: "₹7,499",
-    newPrice: "₹5,499",
-    image: "https://www.lavanyathelabel.com/cdn/shop/files/LBL101KS584_2_700x.jpg?v=1755064787",
-  },
-  {
-    id: 4,
-    title: "Peach Designer Sharara",
-    brand: "Tererang",
-    oldPrice: "₹8,499",
-    newPrice: "₹6,199",
-    image: "https://www.lavanyathelabel.com/cdn/shop/files/LBL101KS584_2_700x.jpg?v=1755064787",
-  },
-  {
-    id: 5,
-    title: "Red Wedding Sharara Suit",
-    brand: "Tererang",
-    oldPrice: "₹9,499",
-    newPrice: "₹6,999",
-    image: "https://www.lavanyathelabel.com/cdn/shop/files/LBL101KS584_2_700x.jpg?v=1755064787",
-  },
-  {
-    id: 6,
-    title: "Green Georgette Sharara",
-    brand: "Tererang",
-    oldPrice: "₹6,999",
-    newPrice: "₹5,299",
-    image: "https://www.lavanyathelabel.com/cdn/shop/files/LBL101KS584_2_700x.jpg?v=1755064787",
-  },
-  {
-    id: 7,
-    title: "Yellow Silk Sharara Suit",
-    brand: "Tererang",
-    oldPrice: "₹8,999",
-    newPrice: "₹7,199",
-    image: "https://www.lavanyathelabel.com/cdn/shop/files/LBL101KS584_2_700x.jpg?v=1755064787",
-  },
-  {
-    id: 8,
-    title: "Purple Heavy Sharara",
-    brand: "Tererang",
-    oldPrice: "₹9,999",
-    newPrice: "₹7,499",
-    image: "https://www.lavanyathelabel.com/cdn/shop/files/LBL101KS584_2_700x.jpg?v=1755064787",
-  },
-  {
-    id: 9,
-    title: "White Bridal Sharara Suit",
-    brand: "Tererang",
-    oldPrice: "₹10,499",
-    newPrice: "₹8,299",
-    image: "https://www.lavanyathelabel.com/cdn/shop/files/LBL101KS584_2_700x.jpg?v=1755064787",
-  },
-  {
-    id: 10,
-    title: "Pink Stylish Sharara Suit",
-    brand: "Tererang",
-    oldPrice: "₹7,499",
-    newPrice: "₹5,599",
-    image: "https://www.lavanyathelabel.com/cdn/shop/files/LBL101KS584_2_700x.jpg?v=1755064787",
-  },
-  {
-    id: 11,
-    title: "Pink Stylish Sharara Suit",
-    brand: "Tererang",
-    oldPrice: "₹7,499",
-    newPrice: "₹5,599",
-    image: "https://www.lavanyathelabel.com/cdn/shop/files/LBL101KS584_2_700x.jpg?v=1755064787",
-  },
-  {
-    id: 12,
-    title: "Pink Stylish Sharara Suit",
-    brand: "Tererang",
-    oldPrice: "₹7,499",
-    newPrice: "₹5,599",
-    image: "https://www.lavanyathelabel.com/cdn/shop/files/LBL101KS584_2_700x.jpg?v=1755064787",
-  },
-
+  // add all others...
 ];
 
-const ShararaSuits = () => {
+export default function ProductDetail() {
+  const { id } = useParams();
+  const product = shararaData.find((item) => item.id === parseInt(id));
+
+  if (!product) return <h1 className="text-center mt-20">Product not found</h1>;
+
   return (
-    <div className="bg-gradient-to-r from-pink-50 via-white to-pink-50 min-h-screen py-12 px-8">
-      {/* Page Title */}
-      <h1 className="text-center text-5xl font-extrabold text-pink-700 mb-14 tracking-wide drop-shadow-lg">
-        ✨ Sharara Suit Collection ✨
-      </h1>
+    <div className="flex flex-col lg:flex-row items-center justify-center p-10 bg-gradient-to-r from-pink-50 to-white min-h-screen">
+      <img
+        src={product.image}
+        alt={product.title}
+        className="rounded-2xl shadow-lg w-[400px] h-[500px] object-cover"
+      />
+      <div className="lg:ml-10 mt-6 lg:mt-0 max-w-lg">
+        <h1 className="text-4xl font-bold text-pink-700 mb-4">{product.title}</h1>
+        <p className="text-gray-600 mb-4">{product.description}</p>
 
-      {/* Products Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12">
-        {shararaData.map((item) => (
-          <div
-            key={item.id}
-            className="bg-white rounded-2xl shadow-md hover:shadow-2xl transition-transform transform hover:-translate-y-2 w-full"
-          >
-            {/* Image + Badge */}
-            <div className="relative">
-              <span className="absolute top-3 left-3 bg-pink-600 text-white px-3 py-1 rounded-md text-xs font-bold shadow-md">
-                Hot
-              </span>
-              <img
-                src={item.image}
-                alt={item.title}
-                className="rounded-t-2xl w-full h-[400px] object-cover"
-              />
-            </div>
+        <div className="mb-4">
+          <span className="line-through text-gray-400 mr-3">{product.oldPrice}</span>
+          <span className="text-2xl font-semibold text-pink-600">{product.newPrice}</span>
+        </div>
 
-            {/* Content */}
-            <div className="p-6 text-center">
-              <h2 className="text-xl font-semibold text-gray-800">
-                {item.title}
-              </h2>
-              <p className="text-sm text-gray-500">{item.brand}</p>
+        <h3 className="font-semibold mb-2">Select Size:</h3>
+        <div className="flex gap-3 mb-4">
+          {product.sizes.map((size) => (
+            <button
+              key={size}
+              className="border border-pink-600 text-pink-600 px-4 py-1 rounded-md hover:bg-pink-600 hover:text-white transition"
+            >
+              {size}
+            </button>
+          ))}
+        </div>
 
-              <div className="mt-2">
-                <span className="line-through text-gray-400 mr-2">
-                  {item.oldPrice}
-                </span>
-                <span className="text-2xl text-pink-600 font-bold">
-                  {item.newPrice}
-                </span>
-              </div>
+        <h3 className="font-semibold mb-2">Height Range:</h3>
+        <div className="flex gap-3 mb-6">
+          {product.heightOptions.map((h) => (
+            <button
+              key={h}
+              className="border border-gray-400 text-gray-700 px-4 py-1 rounded-md hover:bg-gray-100 transition"
+            >
+              {h}
+            </button>
+          ))}
+        </div>
 
-              {/* Buttons */}
-              <div className="mt-6 flex flex-col gap-3">
-                <button className="w-full border-2 border-pink-600 text-pink-600 hover:bg-pink-600 hover:text-white font-medium py-2 rounded-lg transition duration-200">
-                  Choose Options
-                </button>
-                {/* <button className="w-full bg-pink-600 text-white hover:bg-pink-700 font-medium py-2 rounded-lg transition duration-200"> */}
-              
-                {/* </button> */}
-              </div>
-            </div>
-          </div>
-        ))}
+        <Link to={`/product/${product.id}`}>
+  <button className="w-full border-2 border-pink-600 text-pink-600 hover:bg-pink-600 hover:text-white font-medium py-2 rounded-lg transition duration-200">
+    Choose Options
+  </button>
+</Link>
+
       </div>
     </div>
   );
-};
-
-export default ShararaSuits;
+}

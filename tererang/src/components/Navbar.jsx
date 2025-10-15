@@ -130,7 +130,7 @@ const Navbar = () => {
 
           <li>
             <Link
-              to="/about"
+              to="/TermsPage"
               className="hover:text-pink-700 hover:scale-105 transition duration-200"
             >
               Term's & Condition

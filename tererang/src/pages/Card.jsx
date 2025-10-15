@@ -1,52 +1,31 @@
-// src/pages/Card.jsx
-import React, { useState } from "react";
+import React from "react";
 
-const Card = ({ image }) => {
-  const [added, setAdded] = useState(false);
-
-  const handleAddToCart = () => {
-    setAdded(true);
-    console.log("Product added to cart:", image);
-
-    // Button color wapas reset ho 1.5 second baad
-    setTimeout(() => setAdded(false), 1500);
-  };
-
+const Card = ({ image, brand, title, price, oldPrice, discount }) => {
   return (
-    <div className="bg-white rounded-xl shadow-md hover:shadow-2xl transition-transform transform hover:-translate-y-2">
-      {/* Image with animation */}
-      <div className="relative overflow-hidden rounded-t-xl">
+    <div className="bg-white rounded-xl shadow-md hover:shadow-2xl transition-transform duration-300 hover:scale-105 overflow-hidden cursor-pointer border border-gray-100">
+      <div className="relative w-full h-80 overflow-hidden">
         <img
           src={image}
-          alt="Product"
-          className="w-full h-[350px] object-cover transition-transform duration-700 ease-in-out hover:scale-110 cursor-pointer"
+          alt={title}
+          className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
         />
+        <button className="absolute top-3 right-3 bg-white rounded-full p-2 shadow hover:bg-pink-100 text-xl">
+          ❤️
+        </button>
       </div>
-
-      {/* Content */}
-      <div className="p-4 text-center">
-        <h2 className="text-lg font-semibold text-gray-800">Beautiful Dress</h2>
-        <p className="text-sm text-gray-500">Tererang Brand</p>
-        <div className="mt-2">
-          <span className="line-through text-gray-400 mr-2">₹1499</span>
-          <span className="text-xl text-pink-600 font-bold">₹999</span>
+      <div className="p-4">
+        <h3 className="text-md font-semibold text-gray-800">{brand}</h3>
+        <p className="text-sm text-gray-600 mt-1 line-clamp-2">{title}</p>
+        <div className="flex items-center gap-2 mt-2">
+          <span className="text-lg font-bold text-gray-800">₹{price}</span>
+          <span className="text-sm line-through text-gray-400">₹{oldPrice}</span>
+          <span className="text-sm text-green-600 font-semibold">
+            {discount}% OFF
+          </span>
         </div>
-
-        {/* Buttons */}
-        <div className="mt-4 flex flex-col gap-2">
-          <button
-            onClick={handleAddToCart}
-            className={`w-full py-2 rounded-lg font-medium transition duration-300 ${
-              added
-                ? "bg-green-600 text-white"
-                : "border-2 border-pink-600 text-pink-600 hover:bg-pink-600 hover:text-white"
-            }`}
-          >
-            {added ? "✔ Added to Cart" : "Add to Cart"}
-          </button>
-
-          
-        </div>
+        <button className="mt-3 w-full bg-pink-600 text-white py-2 rounded-lg font-medium hover:bg-pink-700 transition">
+          Add to Cart
+        </button>
       </div>
     </div>
   );
