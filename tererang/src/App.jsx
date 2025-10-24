@@ -13,7 +13,7 @@ import Categories from "./pages/Categories";
 import Kurti from "./products/Kurti";
 import Suit from "./products/Suit";
 import Coat from "./products/Coat";
-import Sarara from "./products/Sarara";
+import ShararaData from "./products/ShararaData";
 import Skirt from "./products/Skirt";
 //import Offers from "./pages/Offers";
 import Shipping from "./products/Shipping";
@@ -23,6 +23,8 @@ import HelpCenterPage from "./products/HelpCenterPage";
 import TermsPage from"./products/TermsPage";
 import AlwaysOffers from"./products/AlwaysOffers";
 import MyOrder from"./products/MyOrder";
+import ReturnPolicy from"./products/ReturnPolicy";
+import DesignerSuit from"./products/DesignerSuit";
 
 
 
@@ -49,7 +51,7 @@ function App() {
         <Route path="/products/Kurti" element={<Kurti />} />
         <Route path="/products/Suit" element={<Suit />} />
         <Route path="/products/Coat" element={<Coat />} />
-        <Route path="/products/Sarara" element={<Sarara />} />   {/* ✅ lowercase */}
+        <Route path="/products/ShararaData" element={<ShararaData />} />   {/* ✅ lowercase */}
         <Route path="/products/Skirt" element={<Skirt />} />     {/* ✅ lowercase */}
         <Route path="/Shipping" element={<Shipping />} />     {/* ✅ lowercase */}
         <Route path="/OrderTracker" element={<OrderTracker />} />     {/* ✅ lowercase */}
@@ -58,6 +60,8 @@ function App() {
         <Route path="/TermsPage" element={<TermsPage/>}/>
         <Route path="/AlwaysOffers" element={<AlwaysOffers/>}/>
         <Route path="/MyOrder" element={<MyOrder/>}/>
+        <Route path="ReturnPolicy" element={<ReturnPolicy/>}/>
+        <Route path="DesignerSuit" element={<DesignerSuit/>}/>
 
 
 

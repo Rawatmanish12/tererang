@@ -167,7 +167,7 @@ const Home = () => {
         <li><a href="/products/Kurti" className="hover:text-pink-400 transition">Products</a></li>
         <li><a href="/Shipping" className="hover:text-pink-400 transition">Shipping Policy</a></li>
         <li><a href="/TermsPage" className="hover:text-pink-400 transition">Terms & Conditions</a></li>
-        <li><a href="/returns" className="hover:text-pink-400 transition">Return & Exchange</a></li>
+        <li><a href="/ReturnPolicy" className="hover:text-pink-400 transition">Return & Exchange</a></li>
       </ul>
     </div>
 
@@ -190,10 +190,10 @@ const Home = () => {
         Contact Us
       </h3>
       <ul className="space-y-3 text-gray-400 text-sm">
-        <li>📍 D-268, Noida, India</li>
-        <li>📞 +91 8126742827</li>
+        <li>📍 Noida, Delhi, Muradabad , India</li>
+        <li>📞 +91 9548971147</li>
         <li>✉️ support@tererang.com</li>
-        <li>🕒 Mon - Sat: 9:00 AM - 8:00 PM</li>
+        {/* <li>🕒 Mon - Sat: 9:00 AM - 8:00 PM</li> */}
       </ul>
     </div>
   </div>

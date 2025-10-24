@@ -120,7 +120,7 @@ const Navbar = () => {
                     🎉 Party Wear
                   </h4>
                   <Link
-                    to="/products/sarara"
+                    to="/products/ShararaData"
                     onClick={() => setIsDropdownOpen(false)}
                     className="block hover:text-cyan-400"
                   >
@@ -134,7 +134,7 @@ const Navbar = () => {
                     Skirt
                   </Link>
                   <Link
-                    to="/products/designerSuit"
+                    to="/products/DesignerSuit"
                     onClick={() => setIsDropdownOpen(false)}
                     className="block hover:text-cyan-400"
                   >
