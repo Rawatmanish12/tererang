@@ -6,75 +6,177 @@ const Home = () => {
   // Common product data (you can replace later with API)
   const products = [
     {
+          id: 1,
+          title: "Royal Blue Sharara Suit",
+          description: "Elegant royal blue sharara suit with intricate mirror work, soft rayon fabric, and a matching dupatta. Perfect for evening events.",
+          brand: "Tere Rang",
+          oldPrice: "₹5,999",
+          newPrice: "₹4,299",
+          image: "https://img.faballey.com/images/Product/XKS21678A/d4.jpg", // Main image
+          additionalImages: [ // Added multiple images
+            "https://img.faballey.com/images/Product/XKS21678A/d1.jpg",
+            "https://img.faballey.com/images/Product/XKS21678A/d2.jpg",
+            "https://img.faballey.com/images/Product/XKS21678A/d3.jpg",
+            "https://img.faballey.com/images/Product/XKS21678A/d5.jpg",
+          ],
+          sizes: ["S", "M", "L", "XL"],
+          heightOptions: ["Up to 5'3''", "5'4''-5'6''", "5'6'' and above"],
+          highlights: [
+              { icon: 'Zap', text: 'Ready-to-Ship (2 days)' },
+              { icon: 'Gift', text: 'Free Delivery & Gift Wrapping' },
+              { icon: 'Ruler', text: 'Custom Fitting Available' }
+          ]
+        },
+        {
+          id: 2,
+          title: "Emerald Green Georgette Set",
+          description: "Lustrous emerald green sharara set made from lightweight georgette with delicate thread embroidery. Comes with a full-length sleeve kurta.",
+          brand: "Tere Rang",
+          oldPrice: "₹7,499",
+          newPrice: "₹5,850",
+          image: "https://img.faballey.com/images/Product/XKS28726A/d4.jpg",
+          additionalImages: [
+            "https://img.faballey.com/images/Product/XKS28726A/d1.jpg",
+            "https://img.faballey.com/images/Product/XKS28726A/d2.jpg",
+            "https://img.faballey.com/images/Product/XKS28726A/d3.jpg",
+            "https://img.faballey.com/images/Product/XKS28726A/d5.jpg",
+          ],
+          sizes: ["M", "L", "XL", "XXL"],
+          heightOptions: ["5'4''-5'6''", "5'6'' and above"],
+          highlights: [
+              { icon: 'Zap', text: 'Ready-to-Ship (2 days)' },
+              { icon: 'Gift', text: 'Free Delivery & Gift Wrapping' },
+              { icon: 'Ruler', text: 'Custom Fitting Available' }
+          ]
+        },
+      {
+            id: 3,
+            title: "Velvet Party Wear Suit",
+            description: "Luxury velvet suit with heavy Zari work, perfect for winter weddings and grand events.",
+            brand: "Tere Rang",
+            oldPrice: "₹12,999",
+            newPrice: "₹9,850",
+            image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6sV4c_2_s0OQ5OqW_7i3C-Nl8jB2k5b1yYw&s",
+            additionalImages: [
+              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7kS9i0z6w2y0g-9dF8V7l8zT4w5-2gR6fFw&s",
+              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8lY4qYtG5e5d3g-G4r4yP3w4F8k5V9i7-Q&s",
+            ],
+            sizes: ["M", "L", "XL", "XXL"],
+            heightOptions: ["5'4''-5'6''", "5'6'' and above"],
+            highlights: [
+                { icon: 'Zap', text: 'Ready-to-Ship (2 days)' },
+                { icon: 'Gift', text: 'Free Delivery & Gift Wrapping' },
+                { icon: 'Ruler', text: 'Custom Fitting Available' }
+            ]
+          },
+        {
+            id: 4,
+            title: "Yellow Mustard Cotton Kurti",
+            description: "Bright yellow mustard pure cotton kurti with block print design. Perfect for everyday wear or office.",
+            brand: "Tere Rang",
+            oldPrice: "₹2,499",
+            newPrice: "₹1,150",
+            image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3G7_W4y9_7J-W5I8H8M8L5Y8k3C_4zG6cQ&s",
+            additionalImages: [
+              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhvH4x6zY0k8z2p3i0v0I9p7-P0G2n9v4bQ&s",
+              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7sH8-N1n3f0z7i3J7Y9v8D1v8D9f5d3G7Yw&s",
+            ],
+            sizes: ["S", "M", "L", "XL"],
+            heightOptions: ["5'4''-5'6''", "5'6'' and above"],
+            highlights: [
+                { icon: 'Zap', text: 'Ready-to-Ship (2 days)' },
+                { icon: 'Gift', text: 'Free Delivery & Gift Wrapping' },
+                { icon: 'Ruler', text: 'Custom Fitting Available' }
+            ]
+          },
+          // Add more products for a rich home page
+          {
+              id: 5,
+              title: "Ivory Anarkali Gown",
+              description: "Flowing ivory Anarkali gown with a gold border and lightweight net dupatta. Ideal for festivals.",
+              brand: "Tere Rang",
+              oldPrice: "₹8,000",
+              newPrice: "₹6,500",
+              image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-A7fT8Pz9x9n9P9x_7j3C-Nl8jB2k5b1yYw&s",
+              additionalImages: [],
+              sizes: ["M", "L", "XL"],
+              heightOptions: ["5'4''-5'6''", "5'6'' and above"],
+              highlights: [
+                  { icon: 'Zap', text: 'Ready-to-Ship (2 days)' },
+                  { icon: 'Gift', text: 'Free Delivery & Gift Wrapping' },
+                  { icon: 'Ruler', text: 'Custom Fitting Available' }
+              ]
+            },
+//     {
      
-     image:
-        "https://www.libas.in/cdn/shop/files/27190.jpg?v=1756105763",
-      brand: "Libas",
-      title: "Women Kurta with Trousers & Dupatta",
-      price: 2799,
-      oldPrice: 7999,
-      discount: 65,
-    },
-    {
-      image:
-      "https://maharanidesigner.com/wp-content/uploads/2020/08/Designer-Suits-For-Girls.jpeg.webp",
-      brand: "Anouk",
-      title: "Embroidered Straight Kurta Set",
-      price: 2499,
-      oldPrice: 9999,
-      discount: 75,
-    },
-    {
-      image:
-"https://ibaadatbyjasmine.com/cdn/shop/files/WhatsAppImage2025-06-06at21.28.19_b8497859_540x.jpg?v=1749272465",
-      title: "Printed Cotton Kurta Set",
-      price: 1799,
-      oldPrice: 5999,
-      discount: 70,
-    },
-    {
-      image:
-"https://ibaadatbyjasmine.com/cdn/shop/files/WhatsAppImage2025-07-18at16.41.24_54276767_540x.jpg?v=1754128491",
-      brand: "Aaghnya",
-      title: "Women Printed Kurta Set",
-      price: 750,
-      oldPrice: 4345,
-      discount: 83,
-    },
-    { image:
-      "https://www.libas.in/cdn/shop/files/27190.jpg?v=1756105763",
-    brand: "Libas",
-    title: "Women Kurta with Trousers & Dupatta",
-    price: 2799,
-    oldPrice: 7999,
-    discount: 65,
-  },
-  {
-    image:
-    "https://maharanidesigner.com/wp-content/uploads/2020/08/Designer-Suits-For-Girls.jpeg.webp",
-    brand: "Anouk",
-    title: "Embroidered Straight Kurta Set",
-    price: 2499,
-    oldPrice: 9999,
-    discount: 75,
-  },
-  {
-    image:
-"https://ibaadatbyjasmine.com/cdn/shop/files/WhatsAppImage2025-06-06at21.28.19_b8497859_540x.jpg?v=1749272465",
-    title: "Printed Cotton Kurta Set",
-    price: 1799,
-    oldPrice: 5999,
-    discount: 70,
-  },
-  {
-    image:
-"https://ibaadatbyjasmine.com/cdn/shop/files/WhatsAppImage2025-07-18at16.41.24_54276767_540x.jpg?v=1754128491",
-    brand: "Aaghnya",
-    title: "Women Printed Kurta Set",
-    price: 750,
-    oldPrice: 4345,
-    discount: 83,
-  },
+//      image:
+//         "https://www.libas.in/cdn/shop/files/27190.jpg?v=1756105763",
+//       brand: "Libas",
+//       title: "Women Kurta with Trousers & Dupatta",
+//       price: 2799,
+//       oldPrice: 7999,
+//       discount: 65,
+//     },
+//     {
+//       image:
+//       "https://maharanidesigner.com/wp-content/uploads/2020/08/Designer-Suits-For-Girls.jpeg.webp",
+//       brand: "Anouk",
+//       title: "Embroidered Straight Kurta Set",
+//       price: 2499,
+//       oldPrice: 9999,
+//       discount: 75,
+//     },
+//     {
+//       image:
+// "https://ibaadatbyjasmine.com/cdn/shop/files/WhatsAppImage2025-06-06at21.28.19_b8497859_540x.jpg?v=1749272465",
+//       title: "Printed Cotton Kurta Set",
+//       price: 1799,
+//       oldPrice: 5999,
+//       discount: 70,
+//     },
+//     {
+//       image:
+// "https://ibaadatbyjasmine.com/cdn/shop/files/WhatsAppImage2025-07-18at16.41.24_54276767_540x.jpg?v=1754128491",
+//       brand: "Aaghnya",
+//       title: "Women Printed Kurta Set",
+//       price: 750,
+//       oldPrice: 4345,
+//       discount: 83,
+//     },
+//     { image:
+//       "https://www.libas.in/cdn/shop/files/27190.jpg?v=1756105763",
+//     brand: "Libas",
+//     title: "Women Kurta with Trousers & Dupatta",
+//     price: 2799,
+//     oldPrice: 7999,
+//     discount: 65,
+//   },
+//   {
+//     image:
+//     "https://maharanidesigner.com/wp-content/uploads/2020/08/Designer-Suits-For-Girls.jpeg.webp",
+//     brand: "Anouk",
+//     title: "Embroidered Straight Kurta Set",
+//     price: 2499,
+//     oldPrice: 9999,
+//     discount: 75,
+//   },
+//   {
+//     image:
+// "https://ibaadatbyjasmine.com/cdn/shop/files/WhatsAppImage2025-06-06at21.28.19_b8497859_540x.jpg?v=1749272465",
+//     title: "Printed Cotton Kurta Set",
+//     price: 1799,
+//     oldPrice: 5999,
+//     discount: 70,
+//   },
+//   {
+//     image:
+// "https://ibaadatbyjasmine.com/cdn/shop/files/WhatsAppImage2025-07-18at16.41.24_54276767_540x.jpg?v=1754128491",
+//     brand: "Aaghnya",
+//     title: "Women Printed Kurta Set",
+//     price: 750,
+//     oldPrice: 4345,
+//     discount: 83,
+//   },
   ];
 
   // reusable section component

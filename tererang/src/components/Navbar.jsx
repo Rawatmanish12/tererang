@@ -1,7 +1,8 @@
-// src/components/Navbar.jsx
 import React, { useState, useRef, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import tereRang from "./Final Logo.jpg";
+// 💡 IMPORTANT: Ensure 'Final Logo.jpg' is now a transparent PNG file 
+// (or rename and import the new transparent PNG file)
+import tereRang from "./Final Logo.jpg"; 
 import { Menu, X } from "lucide-react"; // For mobile menu icons
 
 const Navbar = () => {
@@ -43,14 +44,15 @@ const Navbar = () => {
     <nav className="bg-black text-white shadow-lg sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-6 lg:px-10 h-20 flex justify-between items-center">
         
-        {/* ✅ LOGO SECTION */}
+        {/* ✅ LOGO SECTION - UPDATED CSS */}
         <div className="flex items-center">
           <Link to="/">
             <img
               src={tereRang}
               alt="Logo"
-              // 🖼️ IMAGE CSS: Increased size & added glow hover effect
-              className="h-40 w-40 mr-3 rounded-xl object-contain shadow-lg hover:scale-110 transition duration-300"
+              // 🖼️ MODIFIED CSS: Removed 'rounded-xl' and 'shadow-lg' to ensure transparency 
+              // and prevent background bleed. The size is kept as you requested.
+              className="h-40 w-40 mr-3 object-contain hover:scale-110 transition duration-300"
             />
           </Link>
         </div>
